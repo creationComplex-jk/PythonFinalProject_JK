@@ -4,6 +4,9 @@ class Customer:
         self.customer_id = customer_id
         self.phone_number = phone_number
 
+    def display(self):
+        print(self.lastname, self.customer_id, self.phone_number)
+
 
 class Rental:
     def __init__(self, rental_id, customer_id, skis_rented, snowboards_rented, rental_length):
@@ -13,6 +16,9 @@ class Rental:
         self.snowboards_rented = snowboards_rented
         self.rental_length = rental_length
         self.IsClosed = False
+
+    def display(self):
+        print(self, rental_id, self. customer_id, self.skis_rented, self. snowboards_rented, self.rental_length)
 
 
 
