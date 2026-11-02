@@ -31,3 +31,16 @@ class Shop:
         self.total_income = total_income
         self.total_customers = total_customers
         self.total_rentals = total_rentals
+
+    def find_rental():
+
+    def find_rentals_for_customer():
+
+    def add_customer():
+
+    def new_rental():
+
+    def complete_rental():
+
+    def setup_inventory():
+
