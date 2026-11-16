@@ -20,8 +20,6 @@ class Rental:
     def display(self):
         print(self, rental_id, self. customer_id, self.skis_rented, self. snowboards_rented, self.rental_length)
 
-
-
 class Shop:
     def __init__(self, skis, snowboards, customer_list, rental_list, total_income, total_customers, total_rentals):
         self.skis = skis
