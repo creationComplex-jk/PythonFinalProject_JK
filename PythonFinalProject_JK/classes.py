@@ -9,13 +9,16 @@ class Customer:
 
 
 class Rental:
+    snowboard_price = 10
+    ski_price = 15
+
     def __init__(self, rental_id, customer_id, skis_rented, snowboards_rented, rental_length):
         self.rental_id = rental_id
         self.customer_id = customer_id
         self.skis_rented = skis_rented
         self.snowboards_rented = snowboards_rented
         self.rental_length = rental_length
-        self.total_charge = (self.skis_rented * self.rental_length) + (self.snowboards_rented * self.rental_length)
+        self.total_charge = (ski_price * self.skis_rented * self.rental_length) + (snowboard_price * self.snowboards_rented * self.rental_length)
         self.IsClosed = False
 
     def display(self):
@@ -24,6 +27,7 @@ class Rental:
 class Shop:
     rental_number = 0
     customer_number = 0
+
     def __init__(self):
         self.skis = 0
         self.snowboards = 0
@@ -53,22 +57,29 @@ class Shop:
                 customer_rental_list.append(Rental)
         return customer_rental_list
 
-    def add_customer(self, customer, customer_list):
+    def add_customer(self, last_name, phone_number, customer_list):
         customer_number += 1
-        customer.customer_id = customer_number
+        customer_id = customer_number
+        customer = Customer(last_name, customer_id, phone_number)
         customer_list.append(customer)
+        print(f"Your Customer ID is {customer_id}")
 
-    def new_rental(self, rental, rental_list):
+    def new_rental(self, customer_id, skis_rented, snowboards_rented, rental_length, rental_list):
         rental_number += 1
-        rental.rental_id = rental_number
+        rental_id = rental_number
+        rental = Rental(customer_id, skis_rented, snowboards_rented, rental_length)
         rental_list.append(rental)
+        print(f"Your Rental ID is {rental_id}")
+        #This should only succeed if there are enough skis and snowboards currently in our inventory to complete the transaction.
 
     def complete_rental(self, rental):
         if rental.IsClosed == False:
             rental.IsClosed = True
-            print(rental.total_charge)
+            print(f"Your total charge is {rental.total_charge}")
         else:
             print("That rental is already closed.")
+        #Rented skis and snowboards should be returned to inventory.
+        #Income from the rental is added to the total income.
 
     def setup_inventory(self, skis, snowboards):
         skis = 1000
