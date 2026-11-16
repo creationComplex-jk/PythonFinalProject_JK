@@ -22,6 +22,8 @@ class Rental:
         print(self, rental_id, self.customer_id, self.skis_rented, self.snowboards_rented, self.rental_length)
 
 class Shop:
+    rental_number = 0
+    customer_number = 0
     def __init__(self):
         self.skis = 0
         self.snowboards = 0
@@ -52,9 +54,13 @@ class Shop:
         return customer_rental_list
 
     def add_customer(self, customer, customer_list):
+        customer_number += 1
+        customer.customer_id = customer_number
         customer_list.append(customer)
 
     def new_rental(self, rental, rental_list):
+        rental_number += 1
+        rental.rental_id = rental_number
         rental_list.append(rental)
 
     def complete_rental(self, rental):
