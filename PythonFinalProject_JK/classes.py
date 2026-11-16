@@ -15,10 +15,11 @@ class Rental:
         self.skis_rented = skis_rented
         self.snowboards_rented = snowboards_rented
         self.rental_length = rental_length
+        self.total_charge = (self.skis_rented * self.rental_length) + (self.snowboards_rented * self.rental_length)
         self.IsClosed = False
 
     def display(self):
-        print(self, rental_id, self. customer_id, self.skis_rented, self. snowboards_rented, self.rental_length)
+        print(self, rental_id, self.customer_id, self.skis_rented, self.snowboards_rented, self.rental_length)
 
 class Shop:
     def __init__(self):
@@ -57,7 +58,11 @@ class Shop:
         rental_list.append(rental)
 
     def complete_rental(self, rental):
-        rental.IsClosed = True
+        if rental.IsClosed == False:
+            rental.IsClosed = True
+            print(rental.total_charge)
+        else:
+            print("That rental is already closed.")
 
     def setup_inventory(self, skis, snowboards):
         skis = 1000
