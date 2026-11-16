@@ -1,11 +1,11 @@
 class Customer:
-    def __init__(self, lastname, customer_id, phone_number):
-        self.lastname = lastname
+    def __init__(self, last_name, customer_id, phone_number):
+        self.last_name = last_name
         self.customer_id = customer_id
         self.phone_number = phone_number
 
     def display(self):
-        print(self.lastname, self.customer_id, self.phone_number)
+        print(self.last_name, self.customer_id, self.phone_number)
 
 
 class Rental:
@@ -21,24 +21,46 @@ class Rental:
         print(self, rental_id, self. customer_id, self.skis_rented, self. snowboards_rented, self.rental_length)
 
 class Shop:
-    def __init__(self, skis, snowboards, customer_list, rental_list, total_income, total_customers, total_rentals):
-        self.skis = skis
-        self.snowboards = snowboards
-        self.customer_list = customer_list
-        self.rental_list = rental_list
-        self.total_income = total_income
-        self.total_customers = total_customers
-        self.total_rentals = total_rentals
+    def __init__(self):
+        self.skis = 0
+        self.snowboards = 0
+        self.customer_list = {}
+        self.rental_list = {}
+        self.total_income = total_income = 0
+        self.total_customers = total_customers = 0
+        self.total_rentals = total_rentals = 0
+        self.setup_inventory(self.skis, self.snowboards)
 
-    def find_rental():
+    def find_customer(self, customer_id):
+        for Customer in shop.customer_list:
+            if Customer.customer_id == customer_id:
+                return Customer
+            return None
 
-    def find_rentals_for_customer():
+    def find_rental(self, rental_id):
+        for Rental in shop.rental_list:
+            if Rental.rental_id == rental_id:
+                return Rental
+            return None
 
-    def add_customer():
+    def find_rentals_for_customer(self, customer_id):
+        customer_rental_list = {}
+        for Rental in shop.rental_list:
+            if Rental.customer_id == customer_id:
+                customer_rental_list.append(Rental)
+        return customer_rental_list
 
-    def new_rental():
+    def add_customer(self, customer, customer_list):
+        customer_list.append(customer)
 
-    def complete_rental():
+    def new_rental(self, rental, rental_list):
+        rental_list.append(rental)
 
-    def setup_inventory():
+    def complete_rental(self, rental):
+        rental.IsClosed = True
+
+    def setup_inventory(self, skis, snowboards):
+        skis = 1000
+        snowboards = 1000
+
 
