@@ -27,15 +27,17 @@ class Rental:
 class Shop:
     rental_number = 0
     customer_number = 0
+    skis = 0
+    snowboards = 0
+    skis = 0
+    snowboards = 0
+    customer_list = {}
+    rental_list = {}
+    total_income = 0
+    total_customers = 0
+    total_rentals = 0
 
     def __init__(self):
-        self.skis = 0
-        self.snowboards = 0
-        self.customer_list = {}
-        self.rental_list = {}
-        self.total_income = total_income = 0
-        self.total_customers = total_customers = 0
-        self.total_rentals = total_rentals = 0
         self.setup_inventory(self.skis, self.snowboards)
 
     def find_customer(self, customer_id):
@@ -58,31 +60,36 @@ class Shop:
         return customer_rental_list
 
     def add_customer(self, last_name, phone_number, customer_list):
-        customer_number += 1
-        customer_id = customer_number
+        self.customer_number += 1
+        customer_id = self.customer_number
         customer = Customer(last_name, customer_id, phone_number)
-        customer_list.append(customer)
+        self.customer_list.append(customer)
         print(f"Your Customer ID is {customer_id}")
 
     def new_rental(self, customer_id, skis_rented, snowboards_rented, rental_length, rental_list):
-        rental_number += 1
-        rental_id = rental_number
-        rental = Rental(customer_id, skis_rented, snowboards_rented, rental_length)
-        rental_list.append(rental)
-        print(f"Your Rental ID is {rental_id}")
-        #This should only succeed if there are enough skis and snowboards currently in our inventory to complete the transaction.
+        if skis_rented > self.skis or snowboards_rented > self.snowboards:
+            print("Not enough inventory.")
+        else:
+            self.rental_number += 1
+            rental_id = self.rental_number
+            self.skis -= skis_rented
+            self.snowboards -= snowboards_rented
+            rental = Rental(customer_id, skis_rented, snowboards_rented, rental_length)
+            self.rental_list.append(rental)
+            print(f"Your Rental ID is {rental_id}")
 
     def complete_rental(self, rental):
         if rental.IsClosed == False:
             rental.IsClosed = True
+            self.skis += rental.skis_rented
+            self.snowboards += rental.snowboards_rented
+            self.total_income += rental.total_charge
             print(f"Your total charge is {rental.total_charge}")
         else:
             print("That rental is already closed.")
-        #Rented skis and snowboards should be returned to inventory.
-        #Income from the rental is added to the total income.
 
     def setup_inventory(self, skis, snowboards):
-        skis = 1000
-        snowboards = 1000
+        self.skis = 1000
+        self.snowboards = 1000
 
 
