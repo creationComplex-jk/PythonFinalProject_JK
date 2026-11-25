@@ -39,7 +39,7 @@ def new_rental():
 
 def close_rental():
     rental_id = int(input("Rental ID? "))
-    shop.complete_rental(rental_id)
+    shop.complete_rental(rental_id) 
 
 def see_inventory():
     print(f"Skis: {shop.skis}")
@@ -57,7 +57,7 @@ def application():
         print("Get customer info? (B)")
         print("Get customer rentals? (C)")
         print("Get open rentals? (D)")
-        print("Make new rental? (E)")
+        print("Open new rental? (E)")
         print("Return rental? (F)")
         print("Current inventory? (G)")
         print("Aggregate statistics. (H)")
@@ -80,7 +80,7 @@ def application():
             see_statistics()
         valid = False
         while valid == False:
-            Exit = input("Exit? (Y/N): ")
+            Exit = input("Exit Program? (Y/N): ")
             if Exit != "y" and Exit != "Y" and Exit != "n" and Exit != "N":
                 print("Invalid Answer")
                 valid = False
