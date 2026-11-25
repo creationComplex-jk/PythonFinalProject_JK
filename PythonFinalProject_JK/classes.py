@@ -69,7 +69,7 @@ class Shop:
                 customer_rental_list.append(Rental)
         return customer_rental_list
 
-    def add_customer(self, last_name, phone_number, customer_list):
+    def add_customer(self, last_name, phone_number):
         self.customer_number += 1
         customer_id = self.customer_number
         customer = Customer(last_name, customer_id, phone_number)

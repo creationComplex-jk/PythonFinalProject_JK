@@ -3,12 +3,13 @@ import classes
 shop = classes.Shop()
 
 def add_customer():
-    customer_id = int(print(classes.Customer.customer_id))
-    classes.Customer.customer_id += 1
-    last_name = str(input("last Name? "))
+    last_name = str(input("Last Name? "))
     phone_number = str(input("Phone Number? "))
-    customer = classes.Customer(last_name, customer_id, phone_number)
+    shop.add_customer(last_name, phone_number)
     shop.customer_list.append(customer)
+
+def show_customer():
+
 
 def application():
     print("Add new customer? (A)")
