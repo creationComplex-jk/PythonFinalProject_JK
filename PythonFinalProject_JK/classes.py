@@ -91,15 +91,19 @@ class Shop:
             self.rental_list.append(rental)
             print(f"Your Rental ID is {rental_id}")
 
-    def complete_rental(self, rental):
-        if rental.IsClosed == False:
-            rental.IsClosed = True
-            self.skis += rental.skis_rented
-            self.snowboards += rental.snowboards_rented
-            self.total_income += rental.total_charge
-            print(f"Your total charge is {rental.total_charge}")
-        else:
-            print("That rental is already closed.")
+    def complete_rental(self, rental_id):
+        for Rental in self.rental_list:
+            if Rental.rental_id == rental_id:
+                if Rental.IsClosed == False:
+                    Rental.IsClosed = True
+                    self.skis += Rental.skis_rented
+                    self.snowboards += Rental.snowboards_rented
+                    self.total_income += Rental.total_charge
+                    print(f"Your total charge is {Rental.total_charge}")
+                else:
+                    print("That rental is already closed.")
+            else:
+                print("No such rental exists.")
 
     def setup_inventory(self, skis, snowboards):
         self.skis = 1000

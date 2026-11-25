@@ -28,6 +28,8 @@ def new_rental():
     shop.new_rental(customer_id, skis_rented, snowboards_rented, rental_length)
 
 def close_rental():
+    rental_id = int(input("Rental ID? "))
+    shop.complete_rental(rental_id)
 
 def see_inventory():
 
