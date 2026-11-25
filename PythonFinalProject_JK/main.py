@@ -71,7 +71,7 @@ def application():
         valid = False
         while valid == False:
             Exit = input("Exit? (Y/N): ")
-            if Exit != "y" or Exit != "Y" or Exit != "n" or Exit != "N":
+            if Exit != "y" and Exit != "Y" and Exit != "n" and Exit != "N":
                 print("Invalid Answer")
                 valid = False
             else:
