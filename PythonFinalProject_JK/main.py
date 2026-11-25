@@ -17,7 +17,9 @@ def find_customer_rentals():
     shop.find_rentals_for_customers(customer_id)
 
 def find_open_rentals():
-
+    for Rental in shop.rental_list:
+        if Rental.IsClosed == False:
+            Rental.display()
 
 def new_rental():
 
