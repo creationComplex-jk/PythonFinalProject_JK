@@ -12,6 +12,21 @@ def find_customer():
     customer_id = int(input("Customer ID? "))
     shop.find_customer(customer_id)
 
+def find_customer_rentals():
+    customer_id = int(input("Customer ID? "))
+    shop.find_rentals_for_customers(customer_id)
+
+def find_open_rentals():
+
+def new_rental():
+
+def close_rental():
+
+def see_inventory():
+
+def see_statistics():
+    
+
 def application():
     print("Add new customer? (A)")
     print("Get customer info? (B)")

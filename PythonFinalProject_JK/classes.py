@@ -53,7 +53,8 @@ class Shop:
     def find_customer(self, customer_id):
         for Customer in main.shop.customer_list:
             if Customer.customer_id == customer_id:
-                return Customer.display()
+                Customer.display()
+                print("")
             return None
 
     def find_rental(self, rental_id):
@@ -67,7 +68,9 @@ class Shop:
         for Rental in main.shop.rental_list:
             if Rental.customer_id == customer_id:
                 customer_rental_list.append(Rental)
-        return customer_rental_list
+            for Rental in customer_rental_list:
+                Rental.display()
+                print("")
 
     def add_customer(self, last_name, phone_number):
         self.customer_number += 1
