@@ -67,4 +67,10 @@ def application():
     elif choice == "H" or choice == "h":
         see_statistics()
 
+DEBUG = True
+if DEBUG == True:
+    shop.add_customer("Kristoff", 5036792076)
+    shop.add_customer("Jackson", 9638023194)
+    shop.add_customer("Maryam", 6420760014)
+
 application()
