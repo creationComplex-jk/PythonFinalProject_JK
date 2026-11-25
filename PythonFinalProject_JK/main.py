@@ -5,7 +5,8 @@ shop = classes.Shop()
 def loop(value):
     valid = False
     while valid == False:
-        value = input("Return? (Y/N): ")
+        print("")
+        value = input("Exit? (Y/N): ")
         print("")
         if value != "y" and value != "Y" and value != "n" and value != "N":
             print("Invalid Answer")
@@ -79,43 +80,46 @@ def application():
             done = "n"
             while done == "n" or done == "N":
                 add_customer()
-                loop(done)    
+                done = loop(done)    
         elif choice == "B" or choice == "b":
             done = "n"
             while done == "n" or done == "N":
                 find_customer()
-                loop(done)
+                done = loop(done)
         elif choice == "C" or choice == "c":
             done = "n"
             while done == "n" or done == "N":
                 find_customer_rentals()
-                loop(done)
+                done = loop(done)
         elif choice == "D" or choice == "d":
             done = "n"
             while done == "n" or done == "N":
                 find_open_rentals()
-                loop(done)
+                done = loop(done)
         elif choice == "E" or choice == "e":
             done = "n"
             while done == "n" or done == "N":
                 new_rental()
-                loop(done)
+                done = loop(done)
         elif choice == "F" or choice == "f":
             done = "n"
             while done == "n" or done == "N":
                 close_rental()
-                loop(done)
+                done = loop(done)
         elif choice == "G" or choice == "g":
             done = "n"
             while done == "n" or done == "N":
                 see_inventory()
-                loop(done)
+                done = loop(done)
         elif choice == "H" or choice == "h":
             done = "n"
             while done == "n" or done == "N":
                 see_statistics()
-                loop(done)
-        loop(Exit)
+                done = loop(done)
+        print("")
+        print("Would you like to exit the program?")
+        Exit = loop(Exit)
+
 DEBUG = True
 if DEBUG == True:
     shop.testing_demo()
