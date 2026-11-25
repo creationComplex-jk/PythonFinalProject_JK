@@ -65,8 +65,8 @@ def see_statistics():
 
 def application():
     print("")
-    Exit = "n"
-    while Exit == "N" or Exit == "n":
+    Exit = False
+    while Exit == False:
         print("Add new customer? (A)")
         print("Get customer info? (B)")
         print("Get customer rentals? (C)")
@@ -75,6 +75,7 @@ def application():
         print("Return rental? (F)")
         print("Current inventory? (G)")
         print("Aggregate statistics. (H)")
+        print("Exit Program. (0)")
         choice = str(input(""))
         if choice == "A" or choice == "a":
             done = "n"
@@ -116,9 +117,8 @@ def application():
             while done == "n" or done == "N":
                 see_statistics()
                 done = loop(done)
-        print("")
-        print("Would you like to exit the program?")
-        Exit = loop(Exit)
+        elif choice == "0":
+            Exit = True
 
 DEBUG = True
 if DEBUG == True:
