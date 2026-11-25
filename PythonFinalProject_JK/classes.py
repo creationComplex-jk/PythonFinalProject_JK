@@ -1,11 +1,17 @@
+import main
+
 class Customer:
+    customer_id = 1
+
     def __init__(self, last_name, customer_id, phone_number):
         self.last_name = last_name
         self.customer_id = customer_id
         self.phone_number = phone_number
 
     def display(self):
-        print(self.last_name, self.customer_id, self.phone_number)
+        print(f"Last Name: {self.last_name}")
+        print(f"Customer ID: {self.customer_id}")
+        print(f"Phone Number: {self.phone_number}")
 
 
 class Rental:
@@ -22,7 +28,11 @@ class Rental:
         self.IsClosed = False
 
     def display(self):
-        print(self, rental_id, self.customer_id, self.skis_rented, self.snowboards_rented, self.rental_length)
+        print(f"Rental ID: {self.rental_id}")
+        print(f"Customer ID: {self.customer_id}")
+        print(f"Skis_Rented: {self.skis_rented}")
+        print(f"Snowboards Rented: {self.snowboards_rented}")
+        print(f"Rent Time: {self.rental_length}")
 
 class Shop:
     rental_number = 0
