@@ -27,10 +27,11 @@ def new_rental():
         for Customer in shop.customer_list:
                 if Customer.customer_id != customer_id:
                     extant_customer = False
-                    print("No customer under that ID.")
                 else:
                     extant_customer = True
-                    break
+                    continue
+        if extant_customer == False:
+            print("No customer under that ID.")
     skis_rented = int(input("Skis Rented? "))
     snowboards_rented = int(input("Snowboards Rented? "))
     rental_length = int(input("How many hours?? "))
