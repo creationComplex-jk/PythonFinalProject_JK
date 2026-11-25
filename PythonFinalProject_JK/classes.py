@@ -51,20 +51,20 @@ class Shop:
         self.setup_inventory(self.skis, self.snowboards)
 
     def find_customer(self, customer_id):
-        for Customer in shop.customer_list:
+        for Customer in main.shop.customer_list:
             if Customer.customer_id == customer_id:
-                return Customer
+                return Customer.display()
             return None
 
     def find_rental(self, rental_id):
-        for Rental in shop.rental_list:
+        for Rental in main.shop.rental_list:
             if Rental.rental_id == rental_id:
                 return Rental
             return None
 
     def find_rentals_for_customer(self, customer_id):
         customer_rental_list = {}
-        for Rental in shop.rental_list:
+        for Rental in main.shop.rental_list:
             if Rental.customer_id == customer_id:
                 customer_rental_list.append(Rental)
         return customer_rental_list

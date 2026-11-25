@@ -8,8 +8,9 @@ def add_customer():
     shop.add_customer(last_name, phone_number)
     shop.customer_list.append(customer)
 
-def show_customer():
-
+def find_customer():
+    customer_id = int(input("Customer ID? "))
+    shop.find_customer(customer_id)
 
 def application():
     print("Add new customer? (A)")
@@ -24,7 +25,7 @@ def application():
     if choice == "A" or choice == "a":
         add_customer()
     elif choice == "B" or choice == "b":
-
+        find_customer()
     elif choice == "C" or choice == "c":
 
     elif choice == "D" or choice == "d":
