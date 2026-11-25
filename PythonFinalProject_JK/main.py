@@ -76,11 +76,8 @@ def application():
                 valid = False
             else:
                 valid = True
-
 DEBUG = True
 if DEBUG == True:
-    shop.add_customer("Kristoff", 5036792076)
-    shop.add_customer("Jackson", 9638023194)
-    shop.add_customer("Maryam", 6420760014)
+    shop.testing_demo()
 
 application()

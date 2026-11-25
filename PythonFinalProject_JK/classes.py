@@ -1,3 +1,6 @@
+from typing import Self
+
+
 class Customer:
     def __init__(self, last_name, customer_id, phone_number):
         self.last_name = last_name
@@ -73,6 +76,7 @@ class Shop:
         customer = Customer(last_name, customer_id, phone_number)
         self.customer_list.append(customer)
         print(f"Your Customer ID is {customer_id}")
+        self.total_customers += 1
 
     def new_rental(self, customer_id, skis_rented, snowboards_rented, rental_length):
         if skis_rented > self.skis or snowboards_rented > self.snowboards:
@@ -82,9 +86,10 @@ class Shop:
             rental_id = self.rental_number
             self.skis -= skis_rented
             self.snowboards -= snowboards_rented
-            rental = Rental(customer_id, skis_rented, snowboards_rented, rental_length)
+            rental = Rental(rental_id, customer_id, skis_rented, snowboards_rented, rental_length)
             self.rental_list.append(rental)
             print(f"Your Rental ID is {rental_id}")
+            self.total_rentals += 1
 
     def complete_rental(self, rental_id):
         for Rental in self.rental_list:
@@ -103,5 +108,17 @@ class Shop:
     def setup_inventory(self, skis, snowboards):
         self.skis = 1000
         self.snowboards = 1000
+
+    def testing_demo(self):
+        self.add_customer("Kristoff", 5036792076)
+        self.add_customer("1234567890", 0000000000)
+        self.add_customer("<>/-|\{}[]()=+", 9999999999)
+        self.new_rental(2,500, 1000, 999)
+        self.new_rental(1, 250, 0, 0)
+        self.new_rental(3, 500, 1, 10)
+        self.complete_rental(1)
+        self.complete_rental(2)
+        self.complete_rental(3)
+
 
 
