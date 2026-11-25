@@ -13,12 +13,13 @@ def find_customer():
 
 def find_customer_rentals():
     customer_id = int(input("Customer ID? "))
-    shop.find_rentals_for_customers(customer_id)
+    shop.find_rentals_for_customer(customer_id)
 
 def find_open_rentals():
     for Rental in shop.rental_list:
         if Rental.IsClosed == False:
             Rental.display()
+            print("")
 
 def new_rental():
     extant_customer = False
@@ -29,7 +30,7 @@ def new_rental():
                     extant_customer = False
                 else:
                     extant_customer = True
-                    continue
+                    break
         if extant_customer == False:
             print("No customer under that ID.")
     skis_rented = int(input("Skis Rented? "))
@@ -81,6 +82,7 @@ def application():
         valid = False
         while valid == False:
             Exit = input("Exit Program? (Y/N): ")
+            print("")
             if Exit != "y" and Exit != "Y" and Exit != "n" and Exit != "N":
                 print("Invalid Answer")
                 valid = False

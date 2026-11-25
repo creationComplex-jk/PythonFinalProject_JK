@@ -31,7 +31,7 @@ class Rental:
         print(f"Customer ID: {self.customer_id}")
         print(f"Skis_Rented: {self.skis_rented}")
         print(f"Snowboards Rented: {self.snowboards_rented}")
-        print(f"Rent Time: {self.rental_length}")
+        print(f"Hours Rented: {self.rental_length}")
 
 class Shop:
     rental_number = 0
@@ -62,13 +62,13 @@ class Shop:
             return None
 
     def find_rentals_for_customer(self, customer_id):
-        customer_rental_list = {}
+        customer_rental_list = []
         for Rental in self.rental_list:
             if Rental.customer_id == customer_id:
                 customer_rental_list.append(Rental)
-            for Rental in customer_rental_list:
-                Rental.display()
-                print("")
+        for Rental in customer_rental_list:
+            Rental.display()
+            print("")
 
     def add_customer(self, last_name, phone_number):
         self.customer_number += 1
