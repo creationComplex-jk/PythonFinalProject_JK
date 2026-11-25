@@ -79,7 +79,7 @@ class Shop:
         self.customer_list.append(customer)
         print(f"Your Customer ID is {customer_id}")
 
-    def new_rental(self, customer_id, skis_rented, snowboards_rented, rental_length, rental_list):
+    def new_rental(self, customer_id, skis_rented, snowboards_rented, rental_length):
         if skis_rented > self.skis or snowboards_rented > self.snowboards:
             print("Not enough inventory.")
         else:

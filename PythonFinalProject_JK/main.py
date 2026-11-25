@@ -6,7 +6,6 @@ def add_customer():
     last_name = str(input("Last Name? "))
     phone_number = str(input("Phone Number? "))
     shop.add_customer(last_name, phone_number)
-    shop.customer_list.append(customer)
 
 def find_customer():
     customer_id = int(input("Customer ID? "))
@@ -22,6 +21,11 @@ def find_open_rentals():
             Rental.display()
 
 def new_rental():
+    customer_id = int(input("Customer ID? "))
+    skis_rented = int(input("Skis Rented? "))
+    snowboards_rented = int(input("Snowboards Rented? "))
+    rental_length = int(input("How many hours?? "))
+    shop.new_rental(customer_id, skis_rented, snowboards_rented, rental_length)
 
 def close_rental():
 
