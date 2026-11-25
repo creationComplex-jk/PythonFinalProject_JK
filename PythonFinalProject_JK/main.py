@@ -32,9 +32,13 @@ def close_rental():
     shop.complete_rental(rental_id)
 
 def see_inventory():
+    print(f"Skis: {shop.skis}")
+    print(f"Snowboards: {shop.snowboards}")
 
 def see_statistics():
-    
+    print(f"Total Income: {shop.total_income}")
+    print(f"Total Customers: {shop.total_customers}")
+    print(f"Total Rentals: {shop.total_renters}")
 
 def application():
     print("Add new customer? (A)")
@@ -63,3 +67,4 @@ def application():
     elif choice == "H" or choice == "h":
         see_statistics()
 
+application()
