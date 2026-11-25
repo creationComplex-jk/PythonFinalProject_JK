@@ -21,7 +21,15 @@ def find_open_rentals():
             Rental.display()
 
 def new_rental():
-    customer_id = int(input("Customer ID? "))
+    extant_customer = False
+    while extant_customer == False:
+        customer_id = int(input("Customer ID? "))
+        for Customer in shop.customer_list:
+                if Customer.customer_id != customer_id:
+                    extant_customer = False
+                else:
+                    extant_customer = True
+                    break
     skis_rented = int(input("Skis Rented? "))
     snowboards_rented = int(input("Snowboards Rented? "))
     rental_length = int(input("How many hours?? "))
