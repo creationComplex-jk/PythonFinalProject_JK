@@ -39,8 +39,8 @@ class Shop:
     snowboards = 0
     skis = 0
     snowboards = 0
-    customer_list = {}
-    rental_list = {}
+    customer_list = []
+    rental_list = []
     total_income = 0
     total_customers = 0
     total_rentals = 0
