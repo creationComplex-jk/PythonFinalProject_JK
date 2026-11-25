@@ -27,6 +27,7 @@ def new_rental():
         for Customer in shop.customer_list:
                 if Customer.customer_id != customer_id:
                     extant_customer = False
+                    print("No customer under that ID.")
                 else:
                     extant_customer = True
                     break
