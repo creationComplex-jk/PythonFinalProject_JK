@@ -1,5 +1,3 @@
-import main
-
 class Customer:
     customer_id = 1
 
@@ -24,7 +22,7 @@ class Rental:
         self.skis_rented = skis_rented
         self.snowboards_rented = snowboards_rented
         self.rental_length = rental_length
-        self.total_charge = (ski_price * self.skis_rented * self.rental_length) + (snowboard_price * self.snowboards_rented * self.rental_length)
+        self.total_charge = (self.ski_price * self.skis_rented * self.rental_length) + (self.snowboard_price * self.snowboards_rented * self.rental_length)
         self.IsClosed = False
 
     def display(self):
@@ -51,21 +49,21 @@ class Shop:
         self.setup_inventory(self.skis, self.snowboards)
 
     def find_customer(self, customer_id):
-        for Customer in main.shop.customer_list:
+        for Customer in self.customer_list:
             if Customer.customer_id == customer_id:
                 Customer.display()
                 print("")
             return None
 
     def find_rental(self, rental_id):
-        for Rental in main.shop.rental_list:
+        for Rental in self.rental_list:
             if Rental.rental_id == rental_id:
                 return Rental
             return None
 
     def find_rentals_for_customer(self, customer_id):
         customer_rental_list = {}
-        for Rental in main.shop.rental_list:
+        for Rental in self.rental_list:
             if Rental.customer_id == customer_id:
                 customer_rental_list.append(Rental)
             for Rental in customer_rental_list:
