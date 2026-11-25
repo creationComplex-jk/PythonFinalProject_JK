@@ -2,6 +2,17 @@ import classes
 
 shop = classes.Shop()
 
+def loop(value):
+    valid = False
+    while valid == False:
+        value = input("Return? (Y/N): ")
+        print("")
+        if value != "y" and value != "Y" and value != "n" and value != "N":
+            print("Invalid Answer")
+            valid = False
+        else:
+            return value
+
 def add_customer():
     last_name = str(input("Last Name? "))
     phone_number = str(input("Phone Number? "))
@@ -52,6 +63,7 @@ def see_statistics():
     print(f"Total Rentals: {shop.total_rentals}")
 
 def application():
+    print("")
     Exit = "n"
     while Exit == "N" or Exit == "n":
         print("Add new customer? (A)")
@@ -64,30 +76,46 @@ def application():
         print("Aggregate statistics. (H)")
         choice = str(input(""))
         if choice == "A" or choice == "a":
-            add_customer()
+            done = "n"
+            while done == "n" or done == "N":
+                add_customer()
+                loop(done)    
         elif choice == "B" or choice == "b":
-            find_customer()
+            done = "n"
+            while done == "n" or done == "N":
+                find_customer()
+                loop(done)
         elif choice == "C" or choice == "c":
-            find_customer_rentals()
+            done = "n"
+            while done == "n" or done == "N":
+                find_customer_rentals()
+                loop(done)
         elif choice == "D" or choice == "d":
-            find_open_rentals()
+            done = "n"
+            while done == "n" or done == "N":
+                find_open_rentals()
+                loop(done)
         elif choice == "E" or choice == "e":
-            new_rental()
+            done = "n"
+            while done == "n" or done == "N":
+                new_rental()
+                loop(done)
         elif choice == "F" or choice == "f":
-            close_rental()
+            done = "n"
+            while done == "n" or done == "N":
+                close_rental()
+                loop(done)
         elif choice == "G" or choice == "g":
-            see_inventory()
+            done = "n"
+            while done == "n" or done == "N":
+                see_inventory()
+                loop(done)
         elif choice == "H" or choice == "h":
-            see_statistics()
-        valid = False
-        while valid == False:
-            Exit = input("Exit Program? (Y/N): ")
-            print("")
-            if Exit != "y" and Exit != "Y" and Exit != "n" and Exit != "N":
-                print("Invalid Answer")
-                valid = False
-            else:
-                valid = True
+            done = "n"
+            while done == "n" or done == "N":
+                see_statistics()
+                loop(done)
+        loop(Exit)
 DEBUG = True
 if DEBUG == True:
     shop.testing_demo()
