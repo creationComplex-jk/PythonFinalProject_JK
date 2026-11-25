@@ -68,13 +68,13 @@ def application():
     Exit = False
     while Exit == False:
         print("Add new customer? (A)")
-        print("Get customer info? (B)")
-        print("Get customer rentals? (C)")
-        print("Get open rentals? (D)")
+        print("Find customer info? (B)")
+        print("Find customer rentals? (C)")
+        print("Currently open rentals? (D)")
         print("Open new rental? (E)")
         print("Return rental? (F)")
         print("Current inventory? (G)")
-        print("Aggregate statistics. (H)")
+        print("Aggregate statistics? (H)")
         print("Exit Program. (0)")
         choice = str(input(""))
         if choice == "A" or choice == "a":
@@ -93,10 +93,7 @@ def application():
                 find_customer_rentals()
                 done = loop(done)
         elif choice == "D" or choice == "d":
-            done = "n"
-            while done == "n" or done == "N":
                 find_open_rentals()
-                done = loop(done)
         elif choice == "E" or choice == "e":
             done = "n"
             while done == "n" or done == "N":
@@ -108,15 +105,9 @@ def application():
                 close_rental()
                 done = loop(done)
         elif choice == "G" or choice == "g":
-            done = "n"
-            while done == "n" or done == "N":
                 see_inventory()
-                done = loop(done)
         elif choice == "H" or choice == "h":
-            done = "n"
-            while done == "n" or done == "N":
                 see_statistics()
-                done = loop(done)
         elif choice == "0":
             Exit = True
 
