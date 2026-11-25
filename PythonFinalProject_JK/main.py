@@ -38,34 +38,36 @@ def see_inventory():
 def see_statistics():
     print(f"Total Income: {shop.total_income}")
     print(f"Total Customers: {shop.total_customers}")
-    print(f"Total Rentals: {shop.total_renters}")
+    print(f"Total Rentals: {shop.total_rentals}")
 
 def application():
-    print("Add new customer? (A)")
-    print("Get customer info? (B)")
-    print("Get customer rentals? (C)")
-    print("Get open rentals? (D)")
-    print("Make new rental? (E)")
-    print("Return rental? (F)")
-    print("Current inventory? (G)")
-    print("Aggregate statistics. (H)")
-    choice = str(input(""))
-    if choice == "A" or choice == "a":
-        add_customer()
-    elif choice == "B" or choice == "b":
-        find_customer()
-    elif choice == "C" or choice == "c":
-        find_customer_rentals()
-    elif choice == "D" or choice == "d":
-        find_open_rentals()
-    elif choice == "E" or choice == "e":
-        new_rental()
-    elif choice == "F" or choice == "f":
-        close_rental()
-    elif choice == "G" or choice == "g":
-        see_inventory()
-    elif choice == "H" or choice == "h":
-        see_statistics()
+    while Exit == "N" or Exit == "n":
+        print("Add new customer? (A)")
+        print("Get customer info? (B)")
+        print("Get customer rentals? (C)")
+        print("Get open rentals? (D)")
+        print("Make new rental? (E)")
+        print("Return rental? (F)")
+        print("Current inventory? (G)")
+        print("Aggregate statistics. (H)")
+        choice = str(input(""))
+        if choice == "A" or choice == "a":
+            add_customer()
+        elif choice == "B" or choice == "b":
+            find_customer()
+        elif choice == "C" or choice == "c":
+            find_customer_rentals()
+        elif choice == "D" or choice == "d":
+            find_open_rentals()
+        elif choice == "E" or choice == "e":
+            new_rental()
+        elif choice == "F" or choice == "f":
+            close_rental()
+        elif choice == "G" or choice == "g":
+            see_inventory()
+        elif choice == "H" or choice == "h":
+            see_statistics()
+        Exit = input("Exit? (Y/N): ")
 
 DEBUG = True
 if DEBUG == True:
