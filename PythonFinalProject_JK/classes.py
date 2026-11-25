@@ -1,6 +1,4 @@
 class Customer:
-    customer_id = 1
-
     def __init__(self, last_name, customer_id, phone_number):
         self.last_name = last_name
         self.customer_id = customer_id
@@ -53,7 +51,6 @@ class Shop:
             if Customer.customer_id == customer_id:
                 Customer.display()
                 print("")
-            return None
 
     def find_rental(self, rental_id):
         for Rental in self.rental_list:
