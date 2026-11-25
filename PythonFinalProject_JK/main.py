@@ -18,6 +18,7 @@ def find_customer_rentals():
 
 def find_open_rentals():
 
+
 def new_rental():
 
 def close_rental():
@@ -42,15 +43,15 @@ def application():
     elif choice == "B" or choice == "b":
         find_customer()
     elif choice == "C" or choice == "c":
-
+        find_customer_rentals()
     elif choice == "D" or choice == "d":
-
+        find_open_rentals()
     elif choice == "E" or choice == "e":
-
+        new_rental()
     elif choice == "F" or choice == "f":
-        
+        close_rental()
     elif choice == "G" or choice == "g":
-
+        see_inventory()
     elif choice == "H" or choice == "h":
-
+        see_statistics()
 
