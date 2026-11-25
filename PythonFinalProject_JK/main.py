@@ -41,6 +41,7 @@ def see_statistics():
     print(f"Total Rentals: {shop.total_rentals}")
 
 def application():
+    Exit = "n"
     while Exit == "N" or Exit == "n":
         print("Add new customer? (A)")
         print("Get customer info? (B)")
@@ -67,7 +68,14 @@ def application():
             see_inventory()
         elif choice == "H" or choice == "h":
             see_statistics()
-        Exit = input("Exit? (Y/N): ")
+        valid = False
+        while valid == False:
+            Exit = input("Exit? (Y/N): ")
+            if Exit != "y" or Exit != "Y" or Exit != "n" or Exit != "N":
+                print("Invalid Answer")
+                valid = False
+            else:
+                valid = True
 
 DEBUG = True
 if DEBUG == True:
