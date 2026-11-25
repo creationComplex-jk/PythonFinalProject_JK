@@ -28,10 +28,14 @@ def find_customer_rentals():
     shop.find_rentals_for_customer(customer_id)
 
 def find_open_rentals():
+    extant_rental = False
     for Rental in shop.rental_list:
         if Rental.IsClosed == False:
+            extant_rental = True
             Rental.display()
             print("")
+    if extant_rental == False:
+        print("No open rentals.")
 
 def new_rental():
     extant_customer = False
@@ -64,7 +68,6 @@ def see_statistics():
     print(f"Total Rentals: {shop.total_rentals}")
 
 def application():
-    print("")
     Exit = False
     while Exit == False:
         print("Add new customer? (A)")
@@ -93,7 +96,9 @@ def application():
                 find_customer_rentals()
                 done = loop(done)
         elif choice == "D" or choice == "d":
-                find_open_rentals()
+            print("")
+            find_open_rentals()
+            print("")
         elif choice == "E" or choice == "e":
             done = "n"
             while done == "n" or done == "N":
@@ -105,9 +110,13 @@ def application():
                 close_rental()
                 done = loop(done)
         elif choice == "G" or choice == "g":
-                see_inventory()
+            print("")
+            see_inventory()
+            print("")
         elif choice == "H" or choice == "h":
-                see_statistics()
+            print("")
+            see_statistics()
+            print("")
         elif choice == "0":
             Exit = True
 
